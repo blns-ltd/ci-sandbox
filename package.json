@@ -1,0 +1,27 @@
+{
+  "name": "ci-sandbox",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blns-ltd/ci-sandbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blns-ltd/ci-sandbox/issues"
+  },
+  "homepage": "https://github.com/blns-ltd/ci-sandbox#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "terminal-text-effect": "^1.0.4"
+  }
+}
