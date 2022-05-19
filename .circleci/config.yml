@@ -21,11 +21,11 @@ commands:
       - run:  
           name: "Compile"
           command: npm run build 
-  run:
-    description: "Run compiled application"
+  start:
+    description: "Start compiled application"
     steps:
       - run: 
-          name: "Run"
+          name: "Start"
           command: npm run start
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
       - checkout
       - node/install-packages
       - build
-      - run
+      - start
 
 workflows:
   build-test-run:
