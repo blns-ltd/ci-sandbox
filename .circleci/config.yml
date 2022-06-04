@@ -2,6 +2,7 @@ version: 2.1
 
 orbs: 
   node: circleci/node@5.0.2
+  blns-audit: blns/audit-npm@0.1.1
 
 executors: 
   node: 
@@ -36,8 +37,22 @@ jobs:
       - node/install-packages
       - build
       - start
+  audit-notify:
+    executor: node
+    steps:
+      - checkout
+      - blns-audit/audit
+      - blns-audit/notify
 
 workflows:
   build-test-run:
+    when:
+      not:
+        equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
     jobs:
       - build-run
+  audit:
+    when:
+      equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
+    jobs:
+      - audit-notify
